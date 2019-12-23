@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>addexpense</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div class="ion-padding">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title color="success">C'mon spit it out!</ion-card-title>
+              <ion-card-subtitle>Please fill the inputs</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+
+              <ion-item>
+                <ion-label position="floating">Expense title</ion-label>
+                <ion-input type="text" id="input-reason" [(ngModel)]="newExpense.title"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Expense brand</ion-label>
+                <ion-input type="text" id="input-brand" [(ngModel)]="newExpense.brand"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-list>
+                  <ion-radio-group [(ngModel)]="newExpense.category">
+                    <ion-list-header>
+                      <ion-label>Category</ion-label>
+                    </ion-list-header>
+                    <ion-grid fixed>
+                      <ion-row>
+                        <ion-col size="6">
+                          <ion-item>
+                            <ion-icon ios="ios-pizza" md="md-pizza"></ion-icon>
+                            <ion-radio slot="start" value="Food" checked></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-item>
+                            <ion-icon ios="ios-beer" md="md-beer"></ion-icon>
+                            <ion-radio slot="start" value="Drinks"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="6">
+                          <ion-item>
+                            <ion-icon ios="ios-film" md="md-film"></ion-icon>
+                            <ion-radio slot="start" value="Entertainemnt"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-item>
+                            <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+                            <ion-radio slot="start" value="Technology"></ion-radio>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="12">
+                            <ion-item>
+                              <ion-icon ios="ios-shirt" md="md-shirt"></ion-icon>
+                              <ion-radio slot="start" value="Clothing"></ion-radio>
+                            </ion-item>                         
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-radio-group>
+                </ion-list>
+              </ion-item>
+
+              
+                <ion-grid fixed>
+                  <ion-row>
+                    <ion-col size="6">
+                      <ion-item>
+                        <ion-label position="floating">Expense price</ion-label>
+                        <ion-input type="number" id="input-amount" [(ngModel)]="newExpense.price"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col size="6">
+                    <ion-item>
+                      <ion-label position="floating">Quantity</ion-label>
+                      <ion-input type="number" id="input-quantity" [(ngModel)]="newExpense.quantity"></ion-input>
+                    </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              
+                <ion-item>
+                  <ion-label>Description</ion-label>
+                  <ion-textarea rows="4" cols="20" placeholder="Enter any notes here..." [(ngModel)]="newExpense.description"></ion-textarea>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Expense Place</ion-label>
+                  <ion-input type="text" id="input-reason" [(ngModel)]="newExpense.place"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label>MM DD YY</ion-label>
+                  <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" [(ngModel)]="newExpense.date"></ion-datetime>
+                </ion-item>
+
+
+              <div class="ion-margin-vertical ion-text-right">
+                <ion-button id="btn-cancel" size="default" fill="outline" color="danger" (click)="clearInputs()">
+                  <ion-icon slot="start" name="close"></ion-icon>Clear
+                </ion-button>
+                <ion-button id="btn-confirm" size="default" fill="outline" color="success" (click)="addExpense()">
+                  <ion-icon slot="start" name="add"></ion-icon>Add expense
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-alert-controller></ion-alert-controller>
+</ion-content>

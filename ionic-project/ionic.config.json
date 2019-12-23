@@ -1,0 +1,8 @@
+{
+  "name": "ionic-project",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
