@@ -45,8 +45,9 @@ export class MyexpensesPage implements OnInit {
     this.expensesDisplayed = this.expensesDisplayed.filter(expense => {
       const periodSelected = this.currentPeriod;
       const expenseDate = new Date(expense.date);
-      const difference = ( (now.getUTCMonth() + 1) - (expenseDate.getUTCMonth() + 1) ) + '';
-      return(periodSelected === difference);
+      const difference = this.diffMonths(expenseDate, now);
+      //const difference = ( (now.getUTCMonth() + 1) - (expenseDate.getUTCMonth() + 1) ) + '';
+      return(periodSelected === difference.toString());
     });
   }
   this.updateTotalExpenses();
@@ -59,4 +60,9 @@ export class MyexpensesPage implements OnInit {
   });
 }
 
+  public diffMonths = (dt2, dt1) => {
+    let diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= (60 * 60 * 24 * 7 * 4);
+    return Math.abs(Math.round(diff));
+  }
 }

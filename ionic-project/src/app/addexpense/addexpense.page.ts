@@ -59,5 +59,4 @@ export class AddexpensePage implements OnInit {
       this.clearInputs();
     });
   }
-
 }
